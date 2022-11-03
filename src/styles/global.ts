@@ -19,7 +19,7 @@ body{
 
 body,input, textarea, button{
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-family: 'Nunito', sans-serif;
 }
 button {
