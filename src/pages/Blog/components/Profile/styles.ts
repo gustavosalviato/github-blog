@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ProfileContainer = styled.div`
   display: flex;
@@ -6,7 +6,7 @@ export const ProfileContainer = styled.div`
   padding: 3.2rem 4rem;
   border-radius: 6px;
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
-  background: ${props => props.theme["base-profile"]};
+  background: ${(props) => props.theme['base-profile']};
   margin-top: -7rem;
 `
 export const Avatar = styled.img`
@@ -15,22 +15,19 @@ export const Avatar = styled.img`
   border-radius: 8px;
 `
 
-export const ProfileInfo = styled.div`
-
-`
+export const ProfileInfo = styled.div``
 
 export const ProfileHeader = styled.header`
   display: flex;
   justify-content: space-between;
 
-
-  strong{
+  strong {
     font-weight: 700;
     font-size: 2.4rem;
     line-height: 1.3;
   }
 
-  a{
+  a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,7 +36,7 @@ export const ProfileHeader = styled.header`
     list-style: none;
     text-decoration: none;
     text-transform: uppercase;
-    color: ${props => props.theme.blue};
+    color: ${(props) => props.theme.blue};
 
     font-weight: 700;
     line-height: 0;
@@ -48,12 +45,12 @@ export const ProfileHeader = styled.header`
 `
 
 export const ProfileText = styled.p`
-  color: ${props => props.theme["base-text"]};
+  color: ${(props) => props.theme['base-text']};
   line-height: 1.6;
   margin-top: 0.8rem;
 `
 
-export const IconsContainer= styled.div`
+export const IconsContainer = styled.div`
   display: flex;
   margin-top: 2.4rem;
   align-items: center;
@@ -65,7 +62,7 @@ export const Icon = styled.div`
   align-items: center;
   gap: 0.8rem;
 
-  svg{
-    color: ${props => props.theme["base-label"]}
+  svg {
+    color: ${(props) => props.theme['base-label']};
   }
 `

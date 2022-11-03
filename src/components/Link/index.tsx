@@ -1,5 +1,5 @@
-import { ArrowSquareUpRight } from "phosphor-react"
-import { LinkContainer } from "./styles"
+import { ArrowSquareUpRight } from 'phosphor-react'
+import { LinkContainer } from './styles'
 
 interface LinkProps {
   href: string

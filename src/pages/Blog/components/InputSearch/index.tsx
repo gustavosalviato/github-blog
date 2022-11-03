@@ -1,4 +1,4 @@
-import { InputContainer, InputHeader, StyledInput } from "./styles"
+import { InputContainer, InputHeader, StyledInput } from './styles'
 
 export const InputSearch = () => {
   return (

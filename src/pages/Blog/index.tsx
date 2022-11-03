@@ -1,7 +1,7 @@
-import { InputSearch } from "./components/InputSearch"
-import { PostCard } from "./components/PostCard"
-import { Profile } from "./components/Profile"
-import { BlogContainer, Grid } from "./styles"
+import { InputSearch } from './components/InputSearch'
+import { PostCard } from './components/PostCard'
+import { Profile } from './components/Profile'
+import { BlogContainer, Grid } from './styles'
 
 export const Blog = () => {
   return (

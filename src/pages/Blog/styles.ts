@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const BlogContainer = styled.div`
   width: 100%;
@@ -12,6 +12,5 @@ export const Grid = styled.div`
   margin-bottom: 4.8rem;
 
   gap: 3.2rem;
-  grid-template-columns: repeat(auto-fit, minmax(41.6rem, 1fr) );
-    
+  grid-template-columns: repeat(auto-fit, minmax(41.6rem, 1fr));
 `

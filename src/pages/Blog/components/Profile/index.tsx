@@ -1,12 +1,22 @@
-import { ProfileContainer, Avatar, ProfileInfo, ProfileHeader, ProfileText, IconsContainer, Icon } from "./styles"
+import {
+  ProfileContainer,
+  Avatar,
+  ProfileInfo,
+  ProfileHeader,
+  ProfileText,
+  IconsContainer,
+  Icon,
+} from './styles'
 import { GithubLogo, Buildings, Users } from 'phosphor-react'
-import { Link } from "../../../../components/Link"
+import { Link } from '../../../../components/Link'
 
 export const Profile = () => {
   return (
     <ProfileContainer>
-      <Avatar src="https://avatars.githubusercontent.com/u/75762976?v=4" alt="" />
-
+      <Avatar
+        src="https://avatars.githubusercontent.com/u/75762976?v=4"
+        alt=""
+      />
 
       <ProfileInfo>
         <ProfileHeader>
@@ -14,7 +24,11 @@ export const Profile = () => {
           <Link href="https/github.com/gustavosalviato" />
         </ProfileHeader>
 
-        <ProfileText>Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</ProfileText>
+        <ProfileText>
+          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
+          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
+          pulvinar vel mass.
+        </ProfileText>
 
         <IconsContainer>
           <Icon>

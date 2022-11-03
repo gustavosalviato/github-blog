@@ -10,7 +10,6 @@ export const App = () => {
         <Router />
         <GlobalStyle />
       </BrowserRouter>
-
-    </ThemeProvider >
+    </ThemeProvider>
   )
 }
