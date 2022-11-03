@@ -13,7 +13,8 @@ export const GlobalStyle = createGlobalStyle`
 
 body{
   background: ${props => props.theme["base-background"]};
-  color: ${props => props.theme["base-text"]}
+  color: ${props => props.theme["base-text"]};
+  -webkit-font-smoothing: antialiased;
 }
 
 body,input, textarea, button{
@@ -24,4 +25,9 @@ body,input, textarea, button{
 button {
   cursor: pointer;
 }
+
+html{
+    font-size: 62.5%;
+  }
+
 `
