@@ -11,7 +11,7 @@ export const Profile = () => {
       <ProfileInfo>
         <ProfileHeader>
           <strong>Cameron Williamson</strong>
-          <Link href="https/github.com/gustavosalviato"/>
+          <Link href="https/github.com/gustavosalviato" />
         </ProfileHeader>
 
         <ProfileText>Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</ProfileText>

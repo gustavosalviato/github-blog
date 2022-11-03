@@ -1,6 +1,7 @@
 import { InputSearch } from "./components/InputSearch"
+import { PostCard } from "./components/PostCard"
 import { Profile } from "./components/Profile"
-import { BlogContainer } from "./styles"
+import { BlogContainer, Grid } from "./styles"
 
 export const Blog = () => {
   return (
@@ -8,6 +9,13 @@ export const Blog = () => {
       <Profile />
 
       <InputSearch />
+
+      <Grid>
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+      </Grid>
     </BlogContainer>
   )
 }

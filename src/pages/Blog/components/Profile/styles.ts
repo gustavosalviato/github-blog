@@ -53,7 +53,7 @@ export const ProfileText = styled.p`
   margin-top: 0.8rem;
 `
 
-export const IconsContainer = styled.div`
+export const IconsContainer= styled.div`
   display: flex;
   margin-top: 2.4rem;
   align-items: center;
