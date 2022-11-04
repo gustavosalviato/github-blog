@@ -59,6 +59,7 @@ export const IconsContainer = styled.div`
 
 export const Icon = styled.div`
   display: flex;
+  color: ${(props) => props.theme['base-span']};
   align-items: center;
   gap: 0.8rem;
 

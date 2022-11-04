@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-export const PostCardContainer = styled.div`
+export const PostCardContainer = styled(Link)`
   display: flex;
   flex-direction: column;
   height: 26rem;
@@ -9,6 +10,7 @@ export const PostCardContainer = styled.div`
   border-radius: 10px;
   border: 2px solid ${(props) => props.theme['base-post']};
   transition: 0.4s;
+  text-decoration: none;
 
   &:hover {
     border: 2px solid ${(props) => props.theme['base-label']};
@@ -41,4 +43,5 @@ export const PostText = styled.p`
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
+  color: ${(props) => props.theme['base-text']};
 `
