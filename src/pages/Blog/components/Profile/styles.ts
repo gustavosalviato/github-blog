@@ -15,7 +15,11 @@ export const Avatar = styled.img`
   border-radius: 8px;
 `
 
-export const ProfileInfo = styled.div``
+export const ProfileInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`
 
 export const ProfileHeader = styled.header`
   display: flex;

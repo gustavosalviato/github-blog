@@ -12,44 +12,53 @@ import { Link } from '../../../../components/Link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBuilding, faUserGroup } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { UserInfo } from '../..'
+import { Spinner } from '../../../../components/Spinner'
 
-export const Profile = () => {
+interface ProfileProps {
+  user: UserInfo
+  isLoading: boolean
+}
+export const Profile = ({ user, isLoading }: ProfileProps) => {
   return (
     <ProfileContainer>
-      <Avatar
-        src="https://avatars.githubusercontent.com/u/75762976?v=4"
-        alt=""
-      />
+      {isLoading ? <Spinner /> : (
+        <>
+          <Avatar
+            src={user?.avatar_url}
+            alt=""
+          />
 
-      <ProfileInfo>
-        <ProfileHeader>
-          <strong>Cameron Williamson</strong>
-          <Link text="github" href="https://github.com/gustavosalviato" />
-        </ProfileHeader>
+          <ProfileInfo>
+            <ProfileHeader>
+              <strong>{user.name}</strong>
+              <Link text="github" href="https://github.com/gustavosalviato" />
+            </ProfileHeader>
 
-        <ProfileText>
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
-          pulvinar vel mass.
-        </ProfileText>
+            <ProfileText>
+              {user.bio}
+            </ProfileText>
 
-        <IconsContainer>
-          <Icon>
-            <FontAwesomeIcon icon={faGithub} />
-            <span>gustavosalviato</span>
-          </Icon>
+            <IconsContainer>
+              <Icon>
+                <FontAwesomeIcon icon={faGithub} />
+                <span>{user.login}</span>
+              </Icon>
 
-          <Icon>
-            <FontAwesomeIcon icon={faBuilding} />
-            <span>gustavosalviato</span>
-          </Icon>
+              <Icon>
+                <FontAwesomeIcon icon={faBuilding} />
+                <span>{user.company}</span>
+              </Icon>
 
-          <Icon>
-            <FontAwesomeIcon icon={faUserGroup} />
-            <span>gustavosalviato</span>
-          </Icon>
-        </IconsContainer>
-      </ProfileInfo>
+              <Icon>
+                <FontAwesomeIcon icon={faUserGroup} />
+                <span>{user.followers}</span>
+              </Icon>
+            </IconsContainer>
+          </ProfileInfo>
+        </>
+      )}
+
     </ProfileContainer>
   )
 }
