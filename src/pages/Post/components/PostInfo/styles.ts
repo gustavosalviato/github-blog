@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const PostInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
+  gap: 3.2rem 4rem;
   padding: 3.2rem 4rem;
   border-radius: 6px;
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
