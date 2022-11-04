@@ -7,9 +7,11 @@ import {
   IconsContainer,
   Icon,
 } from './styles'
-import { GithubLogo, Buildings, Users } from 'phosphor-react'
-import { Link } from '../../../../components/Link'
 
+import { Link } from '../../../../components/Link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBuilding, faUserGroup } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 export const Profile = () => {
   return (
     <ProfileContainer>
@@ -32,17 +34,17 @@ export const Profile = () => {
 
         <IconsContainer>
           <Icon>
-            <GithubLogo size={18} weight="fill" />
+            <FontAwesomeIcon icon={faGithub} />
             <span>gustavosalvito</span>
           </Icon>
 
           <Icon>
-            <Buildings size={18} weight="fill" />
+            <FontAwesomeIcon icon={faBuilding} />
             <span>gustavosalvito</span>
           </Icon>
 
           <Icon>
-            <Users size={18} weight="fill" />
+            <FontAwesomeIcon icon={faUserGroup} />
             <span>gustavosalvito</span>
           </Icon>
         </IconsContainer>

@@ -64,5 +64,7 @@ export const Icon = styled.div`
 
   svg {
     color: ${(props) => props.theme['base-label']};
+    width: 1.8rem;
+    height: 1.8rem;
   }
 `
