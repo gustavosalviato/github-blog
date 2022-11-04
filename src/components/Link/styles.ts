@@ -1,10 +1,37 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const LinkContainer = styled.a`
-  height: 100%;
+interface LinkContainerProps {
+  variant?: 'iconLeft'
+}
+
+export const LinkContainer = styled.a<LinkContainerProps>`
+  background: none;
+  border: none;
+  color: ${(props) => props.theme.blue};
+  font-size: 1.2rem;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
-  color: ${(props) => props.theme.blue};
+  gap: 0.8rem;
   font-weight: 700;
-  font-size: 1.2rem;
+  transition: 0.4s;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  height: 19px;
+  line-height: 19px;
+
+  svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  &:hover {
+    border-color: ${(props) => props.theme.blue};
+  }
+
+  ${(props) =>
+    props.variant === 'iconLeft' &&
+    css`
+      flex-direction: row-reverse;
+    `}
 `

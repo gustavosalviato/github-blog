@@ -23,7 +23,7 @@ export const Profile = () => {
       <ProfileInfo>
         <ProfileHeader>
           <strong>Cameron Williamson</strong>
-          <Link href="https/github.com/gustavosalviato" />
+          <Link text="github" href="https://google.com" />
         </ProfileHeader>
 
         <ProfileText>
