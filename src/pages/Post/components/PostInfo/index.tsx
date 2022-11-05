@@ -11,11 +11,13 @@ import { Post } from '../../../Blog'
 import { formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 import { useNavigate } from 'react-router-dom'
+import { Spinner } from '../../../../components/Spinner'
 interface PostInfo {
   post: Post
+  isLoading: boolean
 }
 
-export const PostInfo = ({ post }: PostInfo) => {
+export const PostInfo = ({ post, isLoading }: PostInfo) => {
 
   const navigate = useNavigate()
   const goBack = () => {
@@ -23,39 +25,42 @@ export const PostInfo = ({ post }: PostInfo) => {
   }
   return (
     <PostInfoContainer>
-      <header>
-        <Link
-          as="button"
-          text="voltar"
-          variant="iconLeft"
-          icon={<FontAwesomeIcon icon={faChevronLeft} />}
-          onClick={goBack}
-        />
+      {isLoading ? <Spinner /> : (
+        <>
+          <header>
+            <Link
+              as="button"
+              text="voltar"
+              variant="iconLeft"
+              icon={<FontAwesomeIcon icon={faChevronLeft} />}
+              onClick={goBack}
+            />
 
-        <Link text="ver no gihub"
-          href={post.html_url}
-          target='_blank'
-        />
-      </header>
+            <Link text="ver no gihub"
+              href={post.html_url}
+              target='_blank'
+            />
+          </header>
 
-      <strong>{post.title}</strong>
+          <strong>{post.title}</strong>
 
-      <IconContainer>
-        <Icon>
-          <FontAwesomeIcon icon={faGithub} />
-          <span>{post.user?.login}</span>
-        </Icon>
+          <IconContainer>
+            <Icon>
+              <FontAwesomeIcon icon={faGithub} />
+              <span>{post.user?.login}</span>
+            </Icon>
 
-        <Icon>
-          <FontAwesomeIcon icon={faCalendar} />
-          {/* <span>{formatDistanceToNow(new Date(post.created_at), { locale: ptBR, addSuffix: true })}</span> */}
-        </Icon>
+            <Icon>
+              <FontAwesomeIcon icon={faCalendar} />
+              <span>{formatDistanceToNow(new Date(post?.created_at), { locale: ptBR, addSuffix: true })}</span>
+            </Icon>
 
-        <Icon>
-          <FontAwesomeIcon icon={faComment} />
-          <span>{post.comments}</span>
-        </Icon>
-      </IconContainer>
+            <Icon>
+              <FontAwesomeIcon icon={faComment} />
+              <span>{post.comments}</span>
+            </Icon>
+          </IconContainer>
+        </>)}
     </PostInfoContainer>
   )
 }

@@ -31,7 +31,7 @@ export const Post = () => {
 
   return (
     <PostContainer>
-      <PostInfo post={post} />
+      <PostInfo post={post} isLoading={isLoading} />
       <PostContent post={post} />
     </PostContainer>
   )
