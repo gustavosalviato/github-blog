@@ -8,8 +8,7 @@ interface PostContentProps {
 export const PostContent = ({ post }: PostContentProps) => {
   return (
     <TextContent>
-      <ReactMarkDown children={post.body}>
-      </ReactMarkDown>
+      <ReactMarkDown children={post.body}></ReactMarkDown>
     </TextContent>
   )
 }

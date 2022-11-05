@@ -17,25 +17,23 @@ export const Post = () => {
   const fetchIssues = useCallback(async () => {
     try {
       setIsLoading(true)
-      const response = await api.get(`repos/${username}/${repoName}/issues/${id}`)
+      const response = await api.get(
+        `repos/${username}/${repoName}/issues/${id}`,
+      )
       setPost(response.data)
     } finally {
       setIsLoading(false)
     }
-  }, [post])
+  }, [id])
 
   useEffect(() => {
     fetchIssues()
-  }, [])
-
+  }, [fetchIssues])
 
   return (
     <PostContainer>
       <PostInfo post={post} isLoading={isLoading} />
       {!isLoading && <PostContent post={post} />}
-      
     </PostContainer>
   )
 }
-
-

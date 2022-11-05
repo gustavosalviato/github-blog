@@ -28,7 +28,6 @@ export interface UserInfo {
 }
 
 export const Profile = () => {
-
   const [isLoading, setIsLoading] = useState(true)
   const [userInfo, setUserInfo] = useState<UserInfo>({} as UserInfo)
 
@@ -47,12 +46,11 @@ export const Profile = () => {
   }, [])
   return (
     <ProfileContainer>
-      {isLoading ? <Spinner /> : (
+      {isLoading ? (
+        <Spinner />
+      ) : (
         <>
-          <Avatar
-            src={userInfo.avatar_url}
-            alt=""
-          />
+          <Avatar src={userInfo.avatar_url} alt="" />
 
           <ProfileInfo>
             <ProfileHeader>
@@ -60,9 +58,7 @@ export const Profile = () => {
               <Link text="github" href="https://github.com/gustavosalviato" />
             </ProfileHeader>
 
-            <ProfileText>
-              {userInfo.bio}
-            </ProfileText>
+            <ProfileText>{userInfo.bio}</ProfileText>
 
             <IconsContainer>
               <Icon>
@@ -83,7 +79,6 @@ export const Profile = () => {
           </ProfileInfo>
         </>
       )}
-
     </ProfileContainer>
   )
 }

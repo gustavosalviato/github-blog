@@ -8,18 +8,19 @@ interface PostCardProps {
 }
 
 export const PostCard = ({ post }: PostCardProps) => {
-
   return (
     <PostCardContainer to={`/post/${post.number}`}>
       <PostHeader>
         <strong>{post.title}</strong>
-        <span>{formatDistanceToNow(new Date(post.created_at), { locale: ptBR, addSuffix: true })}</span>
+        <span>
+          {formatDistanceToNow(new Date(post.created_at), {
+            locale: ptBR,
+            addSuffix: true,
+          })}
+        </span>
       </PostHeader>
 
-      <PostText>
-        {post.body}
-      </PostText>
-    </PostCardContainer >
-
+      <PostText>{post.body}</PostText>
+    </PostCardContainer>
   )
 }

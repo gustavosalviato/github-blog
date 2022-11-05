@@ -8,9 +8,8 @@ export const TextContent = styled.section`
   line-height: 1.6;
   margin-bottom: 12.8rem;
   padding: 4rem 3.2rem;
-  
-  
-  a{
-    color: ${props => props.theme.blue} !important;
+
+  a {
+    color: ${(props) => props.theme.blue} !important;
   }
 `

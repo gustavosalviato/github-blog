@@ -12,20 +12,21 @@ import { formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 import { useNavigate } from 'react-router-dom'
 import { Spinner } from '../../../../components/Spinner'
-interface PostInfo {
+interface PostInfoProps {
   post: Post
   isLoading: boolean
 }
 
-export const PostInfo = ({ post, isLoading }: PostInfo) => {
-
+export const PostInfo = ({ post, isLoading }: PostInfoProps) => {
   const navigate = useNavigate()
   const goBack = () => {
     navigate(-1)
   }
   return (
     <PostInfoContainer>
-      {isLoading ? <Spinner /> : (
+      {isLoading ? (
+        <Spinner />
+      ) : (
         <>
           <header>
             <Link
@@ -36,10 +37,7 @@ export const PostInfo = ({ post, isLoading }: PostInfo) => {
               onClick={goBack}
             />
 
-            <Link text="ver no gihub"
-              href={post.html_url}
-              target='_blank'
-            />
+            <Link text="ver no gihub" href={post.html_url} target="_blank" />
           </header>
 
           <strong>{post.title}</strong>
@@ -52,7 +50,12 @@ export const PostInfo = ({ post, isLoading }: PostInfo) => {
 
             <Icon>
               <FontAwesomeIcon icon={faCalendar} />
-              <span>{formatDistanceToNow(new Date(post?.created_at), { locale: ptBR, addSuffix: true })}</span>
+              <span>
+                {formatDistanceToNow(new Date(post?.created_at), {
+                  locale: ptBR,
+                  addSuffix: true,
+                })}
+              </span>
             </Icon>
 
             <Icon>
@@ -60,7 +63,8 @@ export const PostInfo = ({ post, isLoading }: PostInfo) => {
               <span>{post.comments}</span>
             </Icon>
           </IconContainer>
-        </>)}
+        </>
+      )}
     </PostInfoContainer>
   )
 }
