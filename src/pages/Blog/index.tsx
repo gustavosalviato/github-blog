@@ -6,49 +6,51 @@ import { PostCard } from './components/PostCard'
 import { Profile } from './components/Profile'
 import { BlogContainer, Grid } from './styles'
 
-export interface UserInfo {
-  name: string
-  followers: number
-  bio: string
-  company: string
-  login: string
-  avatar_url: string
-}
-
 const username = import.meta.env.VITE_GITHUB_USER
 const repoName = import.meta.env.VITE_REPO_NAME
 
+export interface Post {
+  title: string;
+  body: string;
+  created_at: string;
+  number: number;
+  html_url: string;
+  comments: number;
+  user: {
+    login: string;
+  };
+}
 export const Blog = () => {
+  const [posts, setPosts] = useState<Post[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
+  const fetchIssues = useCallback(async (query: string = '') => {
+    try {
+      setIsLoading(true)
+      const response = await api.get(`/search/issues?q=${query}%20repo:${username}/${repoName}`)
+      setPosts(response.data.items)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [posts])
 
-
-  // const fetchIssues = useCallback(async (query = '') => {
-  //   try {
-  //     setIsLoading(true)
-  //     const response = await api.get(`/search/issues?q=${query}%label:published%20repo:${username}/${repoName}`)
-  //     console.log(response.data)  
-  //   } finally {
-  //     setIsLoading(false)
-  //   }
-  // }, [])
-
-  // useEffect(() => {
-  //   fetchUserData()
-  //   // fetchIssues()
-  // }, [])
+  useEffect(() => {
+    fetchIssues()
+  }, [])
 
 
   return (
     <BlogContainer>
-      <Profile/>
+      <Profile />
       <InputSearch />
 
-      <Grid>
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-      </Grid>
+      {isLoading ? <Spinner marginTop='default' /> :
+        <Grid>
+          {posts.map((post) => (
+            <PostCard post={post} key={post.title} />
+          ))}
+        </Grid>
+      }
     </BlogContainer>
   )
 }
