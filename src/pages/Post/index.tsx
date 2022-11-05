@@ -32,7 +32,8 @@ export const Post = () => {
   return (
     <PostContainer>
       <PostInfo post={post} isLoading={isLoading} />
-      <PostContent post={post} />
+      {!isLoading && <PostContent post={post} />}
+      
     </PostContainer>
   )
 }

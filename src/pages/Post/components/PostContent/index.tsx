@@ -1,6 +1,6 @@
 import { Post } from '../../../Blog'
 import { TextContent } from './styles'
-
+import ReactMarkDown from 'react-markdown'
 interface PostContentProps {
   post: Post
 }
@@ -8,7 +8,8 @@ interface PostContentProps {
 export const PostContent = ({ post }: PostContentProps) => {
   return (
     <TextContent>
-      {post.body} 
+      <ReactMarkDown children={post.body}>
+      </ReactMarkDown>
     </TextContent>
   )
 }
