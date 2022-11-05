@@ -14,45 +14,62 @@ import { faBuilding, faUserGroup } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { UserInfo } from '../..'
 import { Spinner } from '../../../../components/Spinner'
+import { useCallback, useEffect, useState } from 'react'
+import { api } from '../../../../lib/api'
 
-interface ProfileProps {
-  user: UserInfo
-  isLoading: boolean
-}
-export const Profile = ({ user, isLoading }: ProfileProps) => {
+const username = import.meta.env.VITE_GITHUB_USER
+
+export const Profile = () => {
+
+  const [isLoading, setIsLoading] = useState(true)
+  const [userInfo, setUserInfo] = useState<UserInfo>({} as UserInfo)
+
+  const fetchUserData = useCallback(async () => {
+    try {
+      setIsLoading(true)
+      const response = await api.get(`/users/${username}`)
+      setUserInfo(response.data)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [userInfo])
+
+  useEffect(() => {
+    fetchUserData()
+  }, [])
   return (
     <ProfileContainer>
       {isLoading ? <Spinner /> : (
         <>
           <Avatar
-            src={user?.avatar_url}
+            src={userInfo.avatar_url}
             alt=""
           />
 
           <ProfileInfo>
             <ProfileHeader>
-              <strong>{user.name}</strong>
+              <strong>{userInfo.name}</strong>
               <Link text="github" href="https://github.com/gustavosalviato" />
             </ProfileHeader>
 
             <ProfileText>
-              {user.bio}
+              {userInfo.bio}
             </ProfileText>
 
             <IconsContainer>
               <Icon>
                 <FontAwesomeIcon icon={faGithub} />
-                <span>{user.login}</span>
+                <span>{userInfo.login}</span>
               </Icon>
 
               <Icon>
                 <FontAwesomeIcon icon={faBuilding} />
-                <span>{user.company}</span>
+                <span>{userInfo.company}</span>
               </Icon>
 
               <Icon>
                 <FontAwesomeIcon icon={faUserGroup} />
-                <span>{user.followers}</span>
+                <span>{userInfo.followers}</span>
               </Icon>
             </IconsContainer>
           </ProfileInfo>
