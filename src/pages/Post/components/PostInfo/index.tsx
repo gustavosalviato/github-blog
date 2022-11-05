@@ -7,34 +7,53 @@ import {
   faComment,
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-export const PostInfo = () => {
+import { Post } from '../../../Blog'
+import { formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
+import { useNavigate } from 'react-router-dom'
+interface PostInfo {
+  post: Post
+}
+
+export const PostInfo = ({ post }: PostInfo) => {
+
+  const navigate = useNavigate()
+  const goBack = () => {
+    navigate(-1)
+  }
   return (
     <PostInfoContainer>
       <header>
         <Link
+          as="button"
           text="voltar"
           variant="iconLeft"
           icon={<FontAwesomeIcon icon={faChevronLeft} />}
+          onClick={goBack}
         />
-        <Link text="ver no gihub" />
+
+        <Link text="ver no gihub"
+          href={post.html_url}
+          target='_blank'
+        />
       </header>
 
-      <strong>JavaScript data types and data structures</strong>
+      <strong>{post.title}</strong>
 
       <IconContainer>
         <Icon>
           <FontAwesomeIcon icon={faGithub} />
-          <span>gustavosalviato</span>
+          <span>{post.user?.login}</span>
         </Icon>
 
         <Icon>
           <FontAwesomeIcon icon={faCalendar} />
-          <span>gustavosalviato</span>
+          {/* <span>{formatDistanceToNow(new Date(post.created_at), { locale: ptBR, addSuffix: true })}</span> */}
         </Icon>
 
         <Icon>
           <FontAwesomeIcon icon={faComment} />
-          <span>gustavosalviato</span>
+          <span>{post.comments}</span>
         </Icon>
       </IconContainer>
     </PostInfoContainer>
