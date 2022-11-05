@@ -24,6 +24,8 @@ export const Blog = () => {
   const [posts, setPosts] = useState<Post[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
+  const postsLength = posts.length
+
   const fetchIssues = useCallback(async (query: string = '') => {
     try {
       setIsLoading(true)
@@ -42,7 +44,7 @@ export const Blog = () => {
   return (
     <BlogContainer>
       <Profile />
-      <InputSearch />
+      <InputSearch postsLength={postsLength} getPosts={fetchIssues} />
 
       {isLoading ? <Spinner marginTop='default' /> :
         <Grid>
